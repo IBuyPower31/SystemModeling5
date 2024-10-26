@@ -38,13 +38,16 @@ namespace SystemModeling5
 
         // Показатели работы
         private static double Productivity; // Производительность ЭВМ
-        private static double CostInHour; // Стоимость работы в час
+        private static int Cost; // Стоимость работы в час
 
         // Вспомогательные переменные
         private static double IsSolvingTimeA = 0; // Осталось времени решать задачу А 
         private static double IsSolvingTimeB = 0; // Осталось времени решать задачу Б
         private static double IsSolvingTimeC = 0; // Осталось времени решать задачу С
         private static double BufferAtTheMoment = 0; // Свободного места в буффере в текущий момент времени
+        private static int CostA;
+        private static int CostB;
+        private static int CostC;
 
         // Флаги моделирования
         private static bool isRunning = false; // Происходит моделирование или нет
@@ -64,8 +67,18 @@ namespace SystemModeling5
             textBox8.Text = "260";
             textBox9.Text = "400";
             textBox10.Text = "640";
-            textBox11.Text = "0,5"; // 0,5
+            textBox11.Text = "1"; // 0,5
             textBox12.Text = "15";
+
+            // Стоимости задаач
+            textBox16.Text = "50";
+            textBox17.Text = "60";
+            textBox18.Text = "80";
+
+            // Инициализируем PictureBox -- пока вычислительный центр ничего не делает
+            pictureBox1.Image = Properties.Resources.NoWorkingCat;
+            pictureBox2.Image = Properties.Resources.NoWorkingCat;
+            pictureBox3.Image = Properties.Resources.NoWorkingCat;
         }
 
         private int FindMaxQueue(int Queue1, int Queue2, int Queue3)
@@ -102,19 +115,7 @@ namespace SystemModeling5
         }
         async private void Modeling()
         {
-            // Обнуление нужных переменных
-            QueueA = 0;
-            QueueB = 0;
-            QueueC = 0;
-            SolvedA = 0;
-            SolvedB = 0;
-            SolvedC = 0;
-            DeclinedA = 0;
-            DeclinedB = 0;
-            DeclinedC = 0;
-
-            Productivity = 0;
-            CostInHour = 0;
+       
 
             // Заполнение изначальных значений
             TimeIncomeA = Convert.ToDouble(textBox1.Text);
@@ -129,6 +130,11 @@ namespace SystemModeling5
             GeneralBuffer = Convert.ToDouble(textBox10.Text);
             t = Convert.ToDouble(textBox11.Text);
             MaxQueue = Convert.ToDouble(textBox12.Text);
+
+            // Заполняем стоимости
+            CostA = Convert.ToInt32(textBox16.Text);
+            CostB = Convert.ToInt32(textBox17.Text);
+            CostC = Convert.ToInt32(textBox18.Text);
 
             BufferAtTheMoment = GeneralBuffer; // Заполненность буффера в текущий момент времени
 
@@ -152,23 +158,7 @@ namespace SystemModeling5
                 iterationCounter++;
 
                 Protocol = new string[13] { "", "", "", "", "", "", "", "", "", "", "", "", "" }; // Инициализация экземпляра протокола
-                /* Что будет в протоколе 
-                 * 1. Время моделирования
-                 * 2. Заданий А в очереди
-                 * 3. Заданий Б в очереди
-                 * 4. Заданий С в очереди
-                 * 5. Решается ли задача А
-                 * 6. Решается ли задача Б
-                 * 7. Решается ли задача С
-                 * 8. Решено задач А
-                 * 9. Решено задач Б
-                 * 10. Решено задач С
-                 * 11. Отклонено задач С
-                 * 12. Отклонено задач С
-                 * 13. Отклонено задач С
-                 */
-
-
+                
                 // ПРИХОД ЗАДАНИЙ РАЗНЫХ КЛАССОВ
                 // Если пришли задания класса А
                 if (Time - localTime1 >= 0)
@@ -226,6 +216,7 @@ namespace SystemModeling5
                         isSolvingA = false;
                         SolvedA += 1;
                         BufferAtTheMoment = GeneralBuffer;
+                        pictureBox1.Image = Properties.Resources.NoWorkingCat;
                     }
                 }
 
@@ -238,6 +229,7 @@ namespace SystemModeling5
                         isSolvingB = false;
                         SolvedB += 1;
                         BufferAtTheMoment = GeneralBuffer;
+                        pictureBox2.Image = Properties.Resources.NoWorkingCat;
                     }
                 }
 
@@ -250,6 +242,7 @@ namespace SystemModeling5
                         isSolvingC = false;
                         SolvedC += 1;
                         BufferAtTheMoment = GeneralBuffer;
+                        pictureBox3.Image = Properties.Resources.NoWorkingCat;
                     }
                 }
 
@@ -298,6 +291,7 @@ namespace SystemModeling5
                         isSolvingC = true;
                         IsSolvingTimeC = TimeSolvingC;
                         BufferAtTheMoment -= BufferC;
+                        pictureBox3.Image = Properties.Resources.WorkingCat;
                     }
 
                     // Проверяем задачу А на самую большую очередь
@@ -307,6 +301,7 @@ namespace SystemModeling5
                         isSolvingA = true;
                         IsSolvingTimeA = TimeSolvingA;
                         BufferAtTheMoment -= BufferA;
+                        pictureBox1.Image = Properties.Resources.WorkingCat;
                     }
 
                     // Проверяем задачу Б на самую большую очередь
@@ -316,6 +311,7 @@ namespace SystemModeling5
                         isSolvingB = true;
                         IsSolvingTimeB = TimeSolvingB;
                         BufferAtTheMoment -= BufferB;
+                        pictureBox2.Image = Properties.Resources.WorkingCat;
                     }
                     
                 }
@@ -333,6 +329,7 @@ namespace SystemModeling5
                             isSolvingB = true;
                             IsSolvingTimeB = TimeSolvingB;
                             BufferAtTheMoment -= BufferB;
+                            pictureBox2.Image = Properties.Resources.WorkingCat;
                         }
                     }
                 }
@@ -350,6 +347,7 @@ namespace SystemModeling5
                             isSolvingA = true;
                             IsSolvingTimeA = TimeSolvingA;
                             BufferAtTheMoment -= BufferA;
+                            pictureBox1.Image = Properties.Resources.WorkingCat;
                         }
                     }
                 }
@@ -367,6 +365,7 @@ namespace SystemModeling5
                             isSolvingA = true;
                             IsSolvingTimeA = TimeSolvingA;
                             BufferAtTheMoment -= BufferA;
+                            pictureBox1.Image = Properties.Resources.WorkingCat;
                         }
                     }
 
@@ -380,17 +379,18 @@ namespace SystemModeling5
                             isSolvingB = true;
                             IsSolvingTimeB = TimeSolvingB;
                             BufferAtTheMoment -= BufferB;
+                            pictureBox2.Image = Properties.Resources.WorkingCat;
                         }
                     }
                 }
 
 
-                await Task.Delay((1000 * Convert.ToInt32(t) / 25) * Convert.ToInt32(Delay)); // Программная задержка
+                await Task.Delay((100 * Convert.ToInt32(t * 10) / 25) * Convert.ToInt32(Delay)); // Программная задержка
 
                 progressBar1.Value += Convert.ToInt32(t * 10); // Продвинем полоску загрузки вперед
 
                 // Заполним протокол
-                Protocol[0] = Convert.ToString(Time);
+                Protocol[0] = Convert.ToString(Math.Round(Time, 2));
                 Protocol[1] = Convert.ToString(QueueA);
                 Protocol[2] = Convert.ToString(QueueB);
                 Protocol[3] = Convert.ToString(QueueC);
@@ -409,6 +409,11 @@ namespace SystemModeling5
                 textBox13.Text = Convert.ToString(BufferAtTheMoment);
             }
 
+            Cost = (SolvedA * CostA) + (SolvedB * CostB) + (SolvedC * CostC);
+            textBox15.Text = Convert.ToString(Cost);
+            Productivity = SolvedA + SolvedB + SolvedC;
+            textBox14.Text = Convert.ToString(Productivity);
+
 
         }
 
@@ -426,6 +431,29 @@ namespace SystemModeling5
                 Delay = trackBar1.Value;
                 button1.Text = "Старт";
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            // Обнуление нужных переменных
+            QueueA = 0;
+            QueueB = 0;
+            QueueC = 0;
+            SolvedA = 0;
+            SolvedB = 0;
+            SolvedC = 0;
+            DeclinedA = 0;
+            DeclinedB = 0;
+            DeclinedC = 0;
+            Productivity = 0;
+            Cost = 0;
+
+            isRunning = false;
+            Time = 0;
+            progressBar1.Value = 0;
+            dataGridView1.Rows.Clear();
+            button1_Click(sender, e);
         }
     }
 }

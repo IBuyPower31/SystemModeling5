@@ -70,8 +70,28 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -241,6 +261,7 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "Перезапуск";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // trackBar1
             // 
@@ -374,22 +395,186 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(12, 346);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 15);
+            this.label11.Size = new System.Drawing.Size(272, 15);
             this.label11.TabIndex = 27;
-            this.label11.Text = "Свободное место в буффере";
+            this.label11.Text = "Свободное место в буффере в текущий момент";
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(184, 343);
+            this.textBox13.Location = new System.Drawing.Point(336, 343);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 23);
             this.textBox13.TabIndex = 26;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(692, 404);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 300);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(967, 404);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(250, 300);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(1240, 404);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(250, 300);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(879, 346);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(469, 23);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Какие задачи решаются в вычислительном центре?";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(767, 707);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 23);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Задания А";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(1037, 707);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(100, 23);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Задания Б";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.Location = new System.Drawing.Point(1309, 707);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 23);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Задания С";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 375);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(266, 15);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Производительность вычислительного центра";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(336, 372);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(100, 23);
+            this.textBox14.TabIndex = 35;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 404);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(280, 15);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Стоимость работы вычислительного центра (у.е)";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(336, 401);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(100, 23);
+            this.textBox15.TabIndex = 37;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 433);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(190, 15);
+            this.label18.TabIndex = 40;
+            this.label18.Text = "Стоимость решенного задания А";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(336, 430);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(100, 23);
+            this.textBox16.TabIndex = 39;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(12, 462);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(189, 15);
+            this.label19.TabIndex = 42;
+            this.label19.Text = "Стоимость решенного задания Б";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(336, 459);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(100, 23);
+            this.textBox17.TabIndex = 41;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 491);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(190, 15);
+            this.label20.TabIndex = 44;
+            this.label20.Text = "Стоимость решенного задания С";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(336, 488);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(100, 23);
+            this.textBox18.TabIndex = 43;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1831, 821);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.textBox17);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.dataGridView1);
@@ -424,6 +609,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +661,22 @@
         private DataGridViewTextBoxColumn Column13;
         private Label label11;
         private TextBox textBox13;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private TextBox textBox14;
+        private Label label17;
+        private TextBox textBox15;
+        private Label label18;
+        private TextBox textBox16;
+        private Label label19;
+        private TextBox textBox17;
+        private Label label20;
+        private TextBox textBox18;
     }
 }
